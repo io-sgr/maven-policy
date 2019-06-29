@@ -97,6 +97,12 @@ This code style contains javadoc formatting rules.
             <property name="allowByTailComment" value="true"/>
             <property name="allowNonPrintableEscapes" value="true"/>
         </module>
+        <module name="LineLength">
+            <!-- *** MODIFIED *** sgr changed to 160 with a setting *** -->
+            <property name="max" default="160"
+                      value="${sgr.checkstyle.line-length}"/>
+            <property name="ignorePattern" value="^package.*|^import.*|a href|href|http://|https://|ftp://"/>
+        </module>
         <module name="AvoidStarImport"/>
         <module name="OneTopLevelClass"/>
         <module name="NoLineWrap"/>
