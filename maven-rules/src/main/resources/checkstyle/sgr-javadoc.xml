@@ -70,13 +70,6 @@ This code style contains javadoc formatting rules.
         <property name="message" value="Line has trailing spaces."/>
     </module>
 
-    <module name="LineLength">
-        <!-- *** MODIFIED *** sgr changed to 160 with a setting *** -->
-        <property name="max" default="160"
-                  value="${sgr.checkstyle.line-length}"/>
-        <property name="ignorePattern" value="^package.*|^import.*|a href|href|http://|https://|ftp://"/>
-    </module>
-
     <!-- =========================================================== -->
     <!--                                                             -->
     <!-- TreeWalker config                                           -->
