@@ -22,13 +22,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.basepom</groupId>
-        <artifactId>basepom-oss</artifactId>
-        <version>28</version>
-        <relativePath />
+        <groupId>io.sgr.maven</groupId>
+        <artifactId>maven-repository</artifactId>
+        <version>1.0.9-SNAPSHOT</version>
+        <relativePath>./maven-repository</relativePath>
     </parent>
 
-    <groupId>io.sgr.maven</groupId>
     <artifactId>maven-policy</artifactId>
     <version>1.0.9-SNAPSHOT</version>
     <packaging>pom</packaging>
@@ -37,8 +36,30 @@
         Build policy related artifacts
     </description>
 
+    <url>https://github.com/io-sgr/maven-policy</url>
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <scm>
+        <connection>scm:git:git@github.com:io-sgr/maven-policy.git</connection>
+        <developerConnection>scm:git:git@github.com:io-sgr/maven-policy.git</developerConnection>
+        <url>https://github.com/io-sgr/maven-policy</url>
+        <tag>HEAD</tag>
+    </scm>
+    <developers>
+        <developer>
+            <id>sgralpha</id>
+            <name>SgrAlpha</name>
+        </developer>
+    </developers>
+
     <modules>
         <module>maven-rules</module>
+        <module>maven-repository</module>
     </modules>
 
 </project>

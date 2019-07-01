@@ -22,14 +22,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.basepom</groupId>
-        <artifactId>basepom-oss</artifactId>
-        <version>28</version>
-        <relativePath />
+        <groupId>io.sgr.maven</groupId>
+        <artifactId>maven-repository</artifactId>
+        <version>1.0.9-SNAPSHOT</version>
+        <relativePath>../maven-repository</relativePath>
     </parent>
 
     <artifactId>maven-rules</artifactId>
-    <version>1.0.9-SNAPSHOT</version>
 
     <description>
         Ruleset and configuration for the various checker tools used by build.
