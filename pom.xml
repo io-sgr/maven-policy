@@ -29,7 +29,6 @@
     </parent>
 
     <artifactId>maven-policy</artifactId>
-    <version>1.0.9-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <description>
@@ -60,6 +59,7 @@
     <modules>
         <module>maven-rules</module>
         <module>maven-repository</module>
+        <module>maven-base</module>
     </modules>
 
 </project>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright 2017-2019 SgrAlpha
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~      http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  ~
+  -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>io.sgr.maven</groupId>
+        <artifactId>maven-repository</artifactId>
+        <version>1.0.9-SNAPSHOT</version>
+        <relativePath>../maven-repository</relativePath>
+    </parent>
+
+    <artifactId>maven-base</artifactId>
+    <packaging>pom</packaging>
+
+    <description>
+        The parent Maven project for all io.sgr projects
+    </description>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <basepom.release.tag-name-format>v@{project.version}</basepom.release.tag-name-format>
+
+        <!-- rules jar for configuring pmd, checkstyle etc. -->
+        <dep.sgr-maven-rules.version>${project.version}</dep.sgr-maven-rules.version>
+
+        <!-- multi-module projects should install and deploy at the end -->
+        <basepom.at-end>true</basepom.at-end>
+
+        <!-- only level 5 pmd allows the builds to pass. -->
+        <basepom.pmd.fail-level>4</basepom.pmd.fail-level>
+
+        <!-- fail on all checkstyle violations -->
+        <basepom.check.checkstyle-severity>warning</basepom.check.checkstyle-severity>
+    </properties>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-pmd-plugin</artifactId>
+                    <dependencies>
+                        <dependency>
+                            <groupId>io.sgr.maven</groupId>
+                            <artifactId>maven-rules</artifactId>
+                            <version>${dep.sgr-maven-rules.version}</version>
+                        </dependency>
+                    </dependencies>
+                    <configuration>
+                        <rulesets>
+                            <ruleset>pmd/sgr.xml</ruleset>
+                        </rulesets>
+                        <excludeRoots combine.children="append">
+                            <excludeRoot>target/generated-sources/annotations</excludeRoot>
+                        </excludeRoots>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-checkstyle-plugin</artifactId>
+                    <dependencies>
+                        <dependency>
+                            <groupId>io.sgr.maven</groupId>
+                            <artifactId>maven-rules</artifactId>
+                            <version>${dep.sgr-maven-rules.version}</version>
+                        </dependency>
+                    </dependencies>
+                    <configuration>
+                        <configLocation>checkstyle/sgr.xml</configLocation>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.jacoco</groupId>
+                    <artifactId>jacoco-maven-plugin</artifactId>
+                    <executions>
+                        <execution>
+                            <id>report</id>
+                            <phase>test</phase>
+                            <goals>
+                                <goal>report</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.basepom.maven</groupId>
+                    <artifactId>duplicate-finder-maven-plugin</artifactId>
+                    <configuration>
+                        <ignoredDependencies>
+                            <dependency>
+                                <groupId>net.bytebuddy</groupId>
+                                <artifactId>byte-buddy</artifactId>
+                            </dependency>
+                            <dependency>
+                                <groupId>net.bytebuddy</groupId>
+                                <artifactId>byte-buddy-agent</artifactId>
+                            </dependency>
+                        </ignoredDependencies>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+</project>
