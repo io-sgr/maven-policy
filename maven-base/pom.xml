@@ -84,7 +84,7 @@
                         </dependency>
                     </dependencies>
                     <configuration>
-                        <configLocation>checkstyle/sgr.xml</configLocation>
+                        <configLocation>checkstyle/sgr-javadoc.xml</configLocation>
                     </configuration>
                 </plugin>
                 <plugin>
