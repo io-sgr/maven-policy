@@ -27,3 +27,5 @@ The pom is activated by adding it as parent to the project POM. Add the followin
 ```
 
 This should be enough for most projects that use JDK 1.8.
+
+The [policy overview](POLICY.md) contains more information about the policies set in the Maven root POM.
