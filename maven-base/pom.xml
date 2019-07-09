@@ -38,6 +38,9 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <basepom.release.tag-name-format>v@{project.version}</basepom.release.tag-name-format>
 
+        <!-- by default all tests enforce UTC timezone -->
+        <sgr.test.user.timezone>UTC</sgr.test.user.timezone>
+
         <!-- rules jar for configuring pmd, checkstyle etc. -->
         <dep.sgr-maven-rules.version>${project.version}</dep.sgr-maven-rules.version>
 
@@ -114,6 +117,24 @@
                                 <artifactId>byte-buddy-agent</artifactId>
                             </dependency>
                         </ignoredDependencies>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <configuration>
+                        <systemPropertyVariables combine.children="replace">
+                            <user.timezone>${sgr.test.user.timezone}</user.timezone>
+                        </systemPropertyVariables>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-failsafe-plugin</artifactId>
+                    <configuration>
+                        <systemPropertyVariables combine.children="replace">
+                            <user.timezone>${sgr.test.user.timezone}</user.timezone>
+                        </systemPropertyVariables>
                     </configuration>
                 </plugin>
                 <plugin>
