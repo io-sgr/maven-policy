@@ -35,9 +35,6 @@
     </description>
 
     <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <basepom.release.tag-name-format>v@{project.version}</basepom.release.tag-name-format>
-
         <!-- by default all tests enforce UTC timezone -->
         <sgr.test.user.timezone>UTC</sgr.test.user.timezone>
 

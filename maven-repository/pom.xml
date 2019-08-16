@@ -55,6 +55,7 @@
         <profile>
             <id>sgr-release</id>
             <properties>
+                <basepom.release.tag-name-format>v@{project.version}</basepom.release.tag-name-format>
                 <!-- unit and integration tests were run in the preparation step of the release, can be skipped here -->
                 <basepom.test.skip>true</basepom.test.skip>
                 <basepom.it.skip>true</basepom.it.skip>
