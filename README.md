@@ -22,7 +22,7 @@ The pom is activated by adding it as parent to the project POM. Add the followin
 <parent>
     <groupId>io.sgr.maven</groupId>
     <artifactId>maven-base</artifactId>
-    <version>1.0.9-SNAPSHOT</version>
+    <version>1.1.1-SNAPSHOT</version>
 </parent>
 ```
 

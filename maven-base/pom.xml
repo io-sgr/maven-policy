@@ -23,7 +23,7 @@
     <parent>
         <groupId>io.sgr.maven</groupId>
         <artifactId>maven-repository</artifactId>
-        <version>1.0.9-SNAPSHOT</version>
+        <version>1.1.1-SNAPSHOT</version>
         <relativePath>../maven-repository</relativePath>
     </parent>
 
@@ -40,6 +40,7 @@
 
         <!-- rules jar for configuring pmd, checkstyle etc. -->
         <dep.sgr-maven-rules.version>${project.version}</dep.sgr-maven-rules.version>
+        <dep.checkstyle.version>8.23</dep.checkstyle.version>
 
         <!-- multi-module projects should install and deploy at the end -->
         <basepom.at-end>true</basepom.at-end>
@@ -90,6 +91,11 @@
                 <plugin>
                     <groupId>org.jacoco</groupId>
                     <artifactId>jacoco-maven-plugin</artifactId>
+                    <configuration>
+                        <excludes combine.children="append">
+                            <exclude>io/sgr/**/AutoValue_*</exclude>
+                        </excludes>
+                    </configuration>
                     <executions>
                         <execution>
                             <id>report</id>
@@ -132,15 +138,6 @@
                         <systemPropertyVariables combine.children="replace">
                             <user.timezone>${sgr.test.user.timezone}</user.timezone>
                         </systemPropertyVariables>
-                    </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>org.jacoco</groupId>
-                    <artifactId>jacoco-maven-plugin</artifactId>
-                    <configuration>
-                        <excludes combine.children="append">
-                            <exclude>io/sgr/**/AutoValue_*</exclude>
-                        </excludes>
                     </configuration>
                 </plugin>
             </plugins>
