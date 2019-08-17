@@ -34,7 +34,7 @@
     <packaging>pom</packaging>
 
     <properties>
-        <sgr.release.profiles>sgr-release</sgr.release.profiles>
+        <sgr.release.profiles>sgr-release,basepom.oss-release</sgr.release.profiles>
     </properties>
 
     <build>
