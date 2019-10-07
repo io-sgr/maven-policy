@@ -22,7 +22,7 @@
     <parent>
         <groupId>io.sgr.maven</groupId>
         <artifactId>maven-repository</artifactId>
-        <version>1.1.1</version>
+        <version>1.1.2-SNAPSHOT</version>
         <relativePath>../maven-repository</relativePath>
     </parent>
 
@@ -38,7 +38,7 @@
         <sgr.test.user.timezone>UTC</sgr.test.user.timezone>
 
         <!-- rules jar for configuring pmd, checkstyle etc. -->
-        <dep.sgr-maven-rules.version>1.1.1</dep.sgr-maven-rules.version>
+        <dep.sgr-maven-rules.version>1.1.2-SNAPSHOT</dep.sgr-maven-rules.version>
         <dep.checkstyle.version>8.23</dep.checkstyle.version>
 
         <!-- multi-module projects should install and deploy at the end -->
