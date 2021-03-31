@@ -41,7 +41,7 @@
         <dep.spring-boot.version>2.1.6.RELEASE</dep.spring-boot.version>
 
         <!-- From Google -->
-        <dep.google-guava.version>28.0-jre</dep.google-guava.version>
+        <dep.google-guava.version>29.0-jre</dep.google-guava.version>
         <dep.google-findbug.version>3.0.2</dep.google-findbug.version>
 
         <!-- For http/rest -->
